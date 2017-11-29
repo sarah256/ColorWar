@@ -20,16 +20,44 @@ namespace ColorWar
     /// </summary>
     public partial class MainWindow : Window
     {
+        int gridWidth = 5;
+        int gridHeight = 5;
+        //Button[,] buttonGrid = new Button[5, 5];
+
         public MainWindow()
         {
             InitializeComponent();
 
-            double width = mainPanel.Width / 5;
-            double height = mainPanel.Height / 5;
+            CreateGrid(gridWidth, gridHeight);
+            //this.SizeChanged += MainWindow_SizeChanged;
+        }
 
-            for (int i = 0; i < 5; i++)
+        private void textBoxWidth_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            mainPanel.Children.RemoveRange(0, mainPanel.Children.Count);
+
+            int.TryParse(textBoxWidth.Text.ToString(), out gridWidth);
+
+            CreateGrid(gridWidth, gridHeight);
+        }
+
+        private void textBoxHeight_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            mainPanel.Children.RemoveRange(0, mainPanel.Children.Count);
+
+            int.TryParse(textBoxHeight.Text.ToString(), out gridHeight);
+
+            CreateGrid(gridWidth, gridHeight);
+        }
+
+        private void CreateGrid(int widthValue, int heightValue)
+        {
+            double width = mainPanel.Width / widthValue;
+            double height = mainPanel.Height / heightValue;
+
+            for (int i = 0; i < widthValue; i++)
             {
-                for (int j = 0; j < 5; j++)
+                for (int j = 0; j < heightValue; j++)
                 {
                     mainPanel.Children.Add(new Button
                     {
@@ -38,13 +66,12 @@ namespace ColorWar
                     });
                 }
             }
-            //this.SizeChanged += MainWindow_SizeChanged;
         }
 
-        private void Button_MouseUp(object sender, MouseButtonEventArgs e)
-        {
+        //private void Button_MouseUp(object sender, MouseButtonEventArgs e)
+        //{
 
-        }
+        //}
 
         //private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         //{
