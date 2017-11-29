@@ -5,9 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColorWar"
         mc:Ignorable="d"
-        Title="MainWindow" Height="356.863" Width="335.295">
+        Title="MainWindow" Height="356.863" Width="516.87">
     <Grid>
-        <WrapPanel x:Name="mainPanel" HorizontalAlignment="Left" Height="299" Margin="10,10,0,0" VerticalAlignment="Top" Width="299" MouseUp="mainPanel_MouseUp"/>
+        <WrapPanel x:Name="mainPanel" HorizontalAlignment="Left" Height="299" Margin="10,10,0,0" VerticalAlignment="Top" Width="299"/>
+        <TextBox x:Name="textBoxWidth" HorizontalAlignment="Left" Height="23" Margin="418,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" Text="5" TextChanged="textBoxWidth_TextChanged"/>
+        <Label Content="Width:" HorizontalAlignment="Left" Margin="368,81,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxHeight" HorizontalAlignment="Left" Height="23" Margin="418,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" Text="5" TextChanged="textBoxHeight_TextChanged"/>
+        <Label Content="Height:" HorizontalAlignment="Left" Margin="368,120,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
